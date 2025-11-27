@@ -1,4 +1,6 @@
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
 
   <!-- Proteções adicionais e detecção de DevTools / HTTrack -->
   <script>
@@ -120,19 +122,24 @@
       <strong>JavaScript desativado:</strong> Para sua segurança e a melhor experiência, habilite o JavaScript no navegador.
     </div>
   </noscript>
-</body>
-</html>
 
-    <title>Amclean - Empresa Hospitalar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amclean - Empresa Hospitalar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="main-content">
     <header>
         <nav>
             <div class="logo">Amclean</div>
-            <div class="nav-links">
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="#produtos" class="nav-link">Produtos</a>
                 <a href="#sobre" class="nav-link">Sobre</a>
                 <a href="#faq" class="nav-link">FAQ</a>
@@ -178,6 +185,22 @@
             <div class="produto" data-aos="fade-up">
                 <img src="fotos-produtos/detergente-5L.jpeg" alt="Detergente 5L">
                 <h3>Detergente 5L</h3>
+            </div>
+            <div class="produto" data-aos="fade-up">
+                <img src="fotos-produtos/cavilon.jpeg" alt="Cavilon">
+                <h3>Cavilon</h3>
+            </div>
+            <div class="produto" data-aos="fade-up">
+                <img src="fotos-produtos/seringa.jpeg" alt="Seringa">
+                <h3>Seringa</h3>
+            </div>
+            <div class="produto" data-aos="fade-up">
+                <img src="fotos-produtos/terumo.jpeg" alt="Terumo">
+                <h3>Terumo</h3>
+            </div>
+            <div class="produto" data-aos="fade-up">
+                <img src="fotos-produtos/substancia-infectante.png" alt="Substância Infectante">
+                <h3>Substância Infectante</h3>
             </div>
         </div>
     </section>
@@ -241,6 +264,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // Menu Toggle para celular
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             // Inicializa as animações AOS
             AOS.init({
@@ -278,19 +318,9 @@
             });
         });
     </script>
-</body>
-</html>
 
     <footer>
         <p>&copy; 2025 Amclean - Todos os direitos reservados</p>
     </footer>
-
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-    </script>
 </body>
 </html>
